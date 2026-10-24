@@ -1,4 +1,21 @@
-<use App\Http\Controllers\CellController;
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CellController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// --- RUTAS PARA EL MÓDULO PRODUCTOS ---
+Route::get('/productos', [ProductoController::class, 'index_GET'])->name('productos.index');
+Route::get('/productos/create', [ProductoController::class, 'create_GET']);
+Route::post('/productos', [ProductoController::class, 'store_POST'])->name('productos.store');
+Route::get('/productos/{producto}', [ProductoController::class, 'show_GET'])->name('productos.show');
+Route::get('/productos/{producto}/edit', [ProductoController::class, 'edit_GET'])->name('productos.edit');
+Route::put('/productos/{producto}', [ProductoController::class, 'update_PUT'])->name('productos.update');
+Route::delete('/productos/{producto}', [ProductoController::class, 'destroy_DELETE'])->name('productos.destroy');
 
 // --- RUTAS PARA EL MÓDULO CELLS ---
 Route::get('/cells', [CellController::class, 'index_GET'])->name('cells.index');
