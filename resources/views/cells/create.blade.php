@@ -5,9 +5,10 @@
     <title>Crear Celda</title>
 </head>
 <body>
-    <h3>Celas - Create!</h3>
+    <h3>Celdas - Create!</h3>
     <form method="post" action="{{ route('cells.store') }}">
         @csrf
+        
         Nombre: <input type="text" name="name" value="{{ old('name') }}"/>
         @error('name') <span style="color: red;">{{ $message }}</span> @enderror <br>
 

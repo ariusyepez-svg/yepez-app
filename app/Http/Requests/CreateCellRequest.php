@@ -6,11 +6,13 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CreateCellRequest extends FormRequest
 {
+    // Cambiar a true para habilitar la validación
     public function authorize(): bool
     {
         return true;
     }
 
+    // 1. Reglas de validación aprendidas (Campos requeridos)
     public function rules(): array
     {
         return [
@@ -20,6 +22,17 @@ class CreateCellRequest extends FormRequest
         ];
     }
 
+    // 2. Personalizar nombres de los atributos a mayúsculas
+    public function attributes(): array
+    {
+        return [
+            'name' => 'NOMBRE',
+            'username' => 'USUARIO',
+            'password' => 'CONTRASEÑA',
+        ];
+    }
+
+    // 3. Mensajes específicos con el formato "es obligatorio" que corregimos antes
     public function messages(): array
     {
         return [
@@ -29,4 +42,3 @@ class CreateCellRequest extends FormRequest
         ];
     }
 }
-

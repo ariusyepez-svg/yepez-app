@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Celda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>edit</title>
 </head>
 <body>
     <h3>Celda - Edit!</h3>
+    
+    <!-- Formulario apuntando a la ruta de actualización pasándole el objeto -->
     <form method="post" action="{{ route('cells.update', $cell) }}">
         @csrf
-        @method('put')
+        @method('put') <!-- Directiva obligatoria para simular el método PUT en HTML -->
 
         ID: <input type="text" name="id" value="{{ $cell->id }}" readonly="true"/> <br>
         
